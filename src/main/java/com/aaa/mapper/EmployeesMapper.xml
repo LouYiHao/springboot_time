@@ -1,0 +1,46 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.aaa.dao.EmployeesDao">
+	<sql id="sql">
+		employeeNumber,
+lastName,
+firstName,
+extension,
+email,
+officeCode,
+reportsTo,
+jobTitle	
+	</sql>
+	
+	<select id="find" resultType="Employees" >
+		select * from Employees limit #{param1},#{param2}
+	</select>
+	
+	<select id="count" resultType="java.lang.Long">
+		select count(*) from Employees
+	</select>
+	
+	<insert id="add">
+		insert into Employees(<include refid="sql"></include>)
+		values(#{employeeNumber},#{lastName},#{firstName},#{extension},#{email},
+		#{officeCode},#{reportsTo},#{jobTitle})
+	</insert>
+	<delete id="del">
+		delete from Employees where employeeNumber in
+		<foreach collection="array" index="index" item="xx" open="(" close=")" separator=",">
+			#{xx}
+		</foreach>
+	</delete>
+	<update id="update">
+	update Employees set
+				lastName=#{lastName},
+				firstName=#{firstName},
+				extension=#{extension},
+				email=#{email},
+				officeCode=#{officeCode},
+				reportsTo=#{reportsTo},
+				jobTitle=#{jobTitle}
+	where 	employeeNumber=#{employeeNumber}
+	</update>
+
+</mapper> -->
